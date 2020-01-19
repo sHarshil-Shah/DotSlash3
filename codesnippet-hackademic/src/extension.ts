@@ -15,7 +15,7 @@ async function sendToServerApi(action: String, subaction: String, language: Stri
 		instruction: ""
 		// Pass data via Streams
 	}
-	return request.post({url:'http://127.0.0.1:8080/api/extension', formData: formData});
+	return request.post({url:'http://127.0.0.1:8080/api/extension', headers:{"Origin":"http://127.0.0.1:8080"}, json: formData});
 }
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -70,7 +70,7 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 				catch(error){
 					console.log(error);
-					vscode.window.showInformationMessage("Some errr occured");
+					vscode.window.showInformationMessage("Some error occured");
 				}
 			});	
         });
