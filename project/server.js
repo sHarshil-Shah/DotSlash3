@@ -9,10 +9,10 @@ constants = require("./backend/constants");
 var app = express();
 app.use(bodyParser.json());
 
-var whitelist = 
-['http://localhost:4200', 
-'http://localhost:8080', 
-'http://127.0.0.1:4200', 
+var whitelist =
+['http://localhost:4200',
+'http://localhost:8080',
+'http://127.0.0.1:4200',
 'http://127.0.0.1:8080'];
 
 var corsOptions = {
@@ -320,4 +320,26 @@ app.delete("/api/subaction/:id", function (req, res) {
       }
     }
   );
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.post("/api/extention", function (req, res) {
+  var action = req.body.action_name;
+  var subAction = req.body.subAction_name;
+
 });
