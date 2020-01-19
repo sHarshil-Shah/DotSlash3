@@ -70,7 +70,17 @@ export class TemplateModalDialog implements OnInit {
     });
   }
 
-  ngOnInit() {
+  setLang(l){
+    console.log("L:"+l);
+    this.editorOptions.language = l.toLowerCase();
   }
-
+  ngOnInit() {
+    this.setLang(this.data.language);
+  }
+  onLangChange(val: string)
+  {
+    console.log("Changed");
+    console.log(val);
+    this.setLang(val);
+  }
 }

@@ -5,7 +5,7 @@
   <span><b>Sub-Action name:</b></span>&nbsp;<span>{{data.sub_action_name}}</span><br />
   <div>
     <mat-form-field>
-      <b>Language:</b><input matInput [(ngModel)]="data.language">
+      <b>Language:</b><input matInput [(ngModel)]="data.language" (input)="onLangChange($event.target.value)">
     </mat-form-field>
   </div>
   <div>
