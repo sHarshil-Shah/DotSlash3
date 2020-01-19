@@ -105,14 +105,14 @@
 
     </tr>
 
-    <tr *ngIf="current_language != null">
-      <td>
-        <p>Instructions:</p>
-        <pre>{{current_language.instructions}}</pre>
-      </td>
-    </tr>
+    
   </div>
-
+  <div *ngIf="current_language != null">
+    <td>
+      <p>Instructions:</p>
+      <pre>{{current_language.instructions}}</pre>
+    </td>
+  </div>
   <div *ngIf="current_language != null">
     <div style="margin-bottom: 20px; width: 100%; height: auto;">
       <span style="align-self: center;">Code:</span>
