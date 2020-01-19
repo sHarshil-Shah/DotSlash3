@@ -12,15 +12,15 @@ export class TemplateModalDialog implements OnInit {
 
   editorOptions = {
     theme: "vs-dark",
-    language: "javascript"
+    language: "",
   };
 
   instructions: string = null;
   code: string = null;
 
-  options = {
-    theme: "vs-dark"
-  };
+  // options = {
+  //   theme: "vs-dark"
+  // };
 
   constructor(
     public dialogRef: MatDialogRef<TemplateModalDialog>,
@@ -36,7 +36,7 @@ export class TemplateModalDialog implements OnInit {
   }
 
   addTemplate(): void{
-    
+
     //console.log(this.data.template);
 
     this.apiService.makeTemplate(

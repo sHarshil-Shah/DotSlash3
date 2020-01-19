@@ -9,8 +9,8 @@
     </mat-form-field>
   </div>
   <div>
-    <mat-form-field>
-      <b>Instructions:</b><textarea matInput style="width: inherit;" [(ngModel)]="data.instructions"></textarea>
+    <mat-form-field style="width: 100%;">
+      <b>Instructions:</b><textarea matInput [(ngModel)]="data.instructions"></textarea>
     </mat-form-field>
   </div>
   <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="data.template"></ngx-monaco-editor>

@@ -306,7 +306,8 @@ addSubAction() {
 
 addTemplate() {
   const dialogRef = this.dialog.open(TemplateModalDialog, {
-    width: '2000 px',
+    width: '90%',
+    height: '90%',
     data: {
       edit: false,
       _id: null,
@@ -342,7 +343,8 @@ addTemplate() {
 editTemplate(act) {
 
   const dialogRef = this.dialog.open(TemplateModalDialog, {
-    width: '500px',
+    width: '90%',
+    height: '90%',
     data: {
       edit: true,
       _id: act["_id"],
@@ -415,9 +417,9 @@ copyText(val: string){
     readOnly: true
   };
 
-  options = {
-    theme: "vs-dark"
-  };
+  // options = {
+  //   theme: "vs-dark"
+  // };
 }
 
 @Component({

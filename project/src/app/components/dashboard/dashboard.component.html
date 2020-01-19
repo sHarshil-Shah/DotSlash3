@@ -105,13 +105,16 @@
 
     </tr>
 
-    
+
   </div>
-  <div *ngIf="current_language != null">
-    <td>
-      <p>Instructions:</p>
-      <pre>{{current_language.instructions}}</pre>
-    </td>
+  <div *ngIf="current_language != null" style="width: 100%;">
+        <div style="width: 100%;">
+            <mat-form-field style="width: 100%;">
+                <b>Instructions:</b><textarea readonly matInput [(ngModel)]="current_language.instructions"></textarea>
+              </mat-form-field>
+          </div>
+      <!-- <p>Instructions:</p>
+      <pre>{{current_language.instructions}}</pre> -->
   </div>
   <div *ngIf="current_language != null">
     <div style="margin-bottom: 20px; width: 100%; height: auto;">
