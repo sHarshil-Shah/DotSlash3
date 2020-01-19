@@ -58,6 +58,11 @@
           </td>
         </tr>
 
+        <tr *ngIf="current_language != null">
+          <td colspan="2" style="width: 100%;">
+            <span>Instructions:</span><br>
+            <code>{{current_language.instructions}}</code>
+          </td>
 
 
       </div>
