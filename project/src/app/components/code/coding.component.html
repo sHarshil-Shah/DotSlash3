@@ -58,15 +58,10 @@
           </td>
         </tr>
 
-        <tr *ngIf="current_language != null">
-          <td colspan="2">
-            <span>Instructions:</span>
-            <pre>{{current_language.instructions}}</pre>
-          </td>
 
-        </tr>
 
       </div>
+
     </div>
 
     <div fxFlex="50">
@@ -83,6 +78,9 @@
 
 
 
-
+<div>
+  <span *ngIf="current_language != null">Instructions:</span>
+            <pre *ngIf="current_language != null" style="overflow: scroll;">{{current_language.instructions}}</pre>
+</div>
 
 </mat-card>
