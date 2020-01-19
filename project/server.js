@@ -322,24 +322,80 @@ app.delete("/api/subaction/:id", function (req, res) {
   );
 });
 
+app.post("/api/extension", async function (req, res) {
+  var params =["action","subaction", "language", "template", "instruction"];
+  var body = req.body;
+  for (let param = 0; param < params.length; param++) {
+    const element = params[param];
+    if(body[element]==null) {
+      handleError(res, "Missing param", element + " missing");
+    }
+  }
+  /*db.collection(constants.ACTIONS_COLLECTION)
+    .find({ "name": body.action })
+    .toArray(function (err, docs) {
+      if (err) {
+        handleError(res, err.message, "Failed to get templates.");
+      } else {
+        res.status(200).json(docs);
+      }
+    });*/
+    /*  var bb = {
+    name: req.body.name,
+    createDate: new Date()
+  };
+  if (!req.body.name) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  } else {
+    db.collection(constants.ACTIONS_COLLECTION).insertOne(bb, function (
+      err,
+      doc
+    ) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new contact.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
+  }*/
+
+
+  var result = await db.collection(constants.ACTIONS_COLLECTION).findOne({ name: {"$regex":body.action, "$options": "i"} });
+  
+  var action_id = "";
+  if(result == null){
+    result = await db.collection(constants.ACTIONS_COLLECTION).insertOne({"name":body["action"]})
+    action_id = result["insertedId"]
+  }
+  else{
+    action_id = result["_id"]
+  }
+
+  console.log("Action ID: " + action_id);
 
 
 
+  var result2 = await db.collection(constants.SUBACTIONS_COLLECTION).findOne({ name: {"$regex":body.subaction, "$options": "i"}, "action_id" : action_id});
+  
+  var sub_action_id = "";
+  if(result2 == null){
+    result = await db.collection(constants.SUBACTIONS_COLLECTION).insertOne({"name":body["subaction"], "action_id":action_id})
+    sub_action_id = result["insertedId"]
+  }
+  else{
+    sub_action_id = result2["_id"]
+  }
+  console.log("Subaction id:" + sub_action_id);
+  //res.status(200).json(sub_action_id);
 
+  var result3 = await db.collection(constants.TEMPLATES_COLLECTION).insertOne(
+    {
+      "subaction_id": sub_action_id,
+      "language": body["language"],
+      "template": body["template"], 
+      "instruction": body["instruction"]
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-app.post("/api/extention", function (req, res) {
-  var action = req.body.action_name;
-  var subAction = req.body.subAction_name;
+  res.status(200).json(result3);
 
 });

@@ -67,13 +67,11 @@ export function activate(context: vscode.ExtensionContext) {
 					const result = await sendToServerApi(action, subaction, "python", text);
 					console.log(result);
 					vscode.window.showInformationMessage( action + ' : ' + subaction +  ' Created!');
-
 				}
 				catch(error){
 					console.log(error);
 					vscode.window.showInformationMessage("Some errr occured");
 				}
-
 			});	
         });
 	});
