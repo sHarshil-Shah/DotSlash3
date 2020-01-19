@@ -1,16 +1,16 @@
 #files-table {
     width: 100%;
   }
-  
+
   .progress-bar-file-table {
     width: 50%;
   }
-  
+
   .progress-spinnner-file-table {
     width: 50%;
     margin-left: 20px;
   }
-  
+
   .table-class {
     position: relative;
     margin-top: 15px;
@@ -18,15 +18,15 @@
     display: block;
     width: 100%;
   }
-  
+
   tr.mat-footer-row {
     font-weight: bold;
   }
-  
+
   .clearableField {
     width: 250px;
   }
-  
+
   .mat-select {
     width: 200px;
   }
@@ -38,9 +38,12 @@
     display: table;
     width: 100%;
   }
-  
+
   .button-wrapper2 {
     display: table-cell;
     vertical-align: middle;
   }
-  
+
+  .my-code-editor {
+      height: 500px;
+  }

@@ -119,6 +119,6 @@
       <button style="align-self: center; float: right; " mat-stroked-button color="primary"
         (click)="copy()">Copy</button>
     </div>
-    <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="current_language.template"></ngx-monaco-editor>
+    <ngx-monaco-editor class="my-code-editor" [options]="editorOptions" [(ngModel)]="current_language.template"></ngx-monaco-editor>
   </div>
 </mat-card>

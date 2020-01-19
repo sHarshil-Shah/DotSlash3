@@ -1,14 +1,10 @@
-<div
-  style="height: auto"
-  class="example-container"
-  [class.example-is-mobile]="mobileQuery.matches"
->
+<div style="height: auto" class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
     <!--button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button-->
-    <a routerLink="/" style="color: #FFF; text-decoration: none;"
-      ><img class="logo" src="/assets/codesnippetlogo.png" style="height: 35px;"/>
+    <a routerLink="/" style="color: #FFF; text-decoration: none;"><img class="logo" src="/assets/codesnippetlogo.png"
+        style="height: 35px;" />
     </a>
     <h1 class="example-app-name">
       <a routerLink="/" style="color: #FFF; text-decoration: none">CodeSnippet</a>
@@ -23,12 +19,7 @@
     <button *ngIf="!applicationStateService.isMobileResolution" mat-button color="white" routerLink="/dashboard">
       <i class="material-icons matIcon">dashboard</i>Dashboard
     </button>
-    <button
-
-      mat-button
-      color="white"
-      routerLink="/code"
-    >
+    <button mat-button color="white" routerLink="/code">
       <i class="material-icons matIcon">code</i>Code!
     </button>
     <!-- <button
@@ -90,24 +81,15 @@
     </button> -->
   </mat-toolbar>
 
-  <mat-sidenav-container
-    class="example-sidenav-container"
-    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
-  >
-    <mat-sidenav
-      [autoFocus]="false"
-      #snav
-      [mode]="'over'"
-      [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56"
-      (click)="snav.close()"
-    >
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav [autoFocus]="false" #snav [mode]="'over'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
+      (click)="snav.close()">
       <mat-nav-list>
         <div style="background-color: #666; height: 100px; position: relative; ">
           <div style="color: #FFF; text-align: right; bottom: 0; position: absolute;">
-          acInfo.name
-          acInfo.email
-        </div>
+            acInfo.name
+            acInfo.email
+          </div>
         </div>
         <a mat-list-item routerLink="."><i class="material-icons matIcon">home</i>Home</a>
         <!--<a

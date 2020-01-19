@@ -39,8 +39,8 @@ export class DashboardComponent implements OnInit {
   @ViewChild('action_select',{static:false}) action_select: MatSelect;
   @ViewChild('sub_action_select',{static:false}) sub_action_select: MatSelect;
   @ViewChild('language_select',{static:false}) language_select: MatSelect;
-  
-  
+
+
   constructor(
     private httpClient: HttpClient,
     private router: Router,
@@ -411,7 +411,8 @@ copyText(val: string){
     */
   editorOptions = {
     theme: "vs-dark",
-    language: "javascript"
+    language: "",
+    readOnly: true
   };
 
   options = {
