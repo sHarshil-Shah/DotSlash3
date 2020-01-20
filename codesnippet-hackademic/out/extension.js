@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
 const request = require("request-promise-native");
-function sendToServerApi(action, subaction, language, template) {
+function sendToServerApi(action, subaction, language = "plaintext", template) {
     return __awaiter(this, void 0, void 0, function* () {
         const formData = {
             // Pass a simple key-value pair
@@ -63,14 +63,16 @@ function activate(context) {
                 return;
             var action = value;
             vscode.window.showInputBox(options).then((value2) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 if (!value2)
                     return;
                 var subaction = value2;
                 console.log(action, subaction);
                 try {
-                    const result = yield sendToServerApi(action, subaction, "python", text);
+                    var languageId = (_a = vscode.window.activeTextEditor) === null || _a === void 0 ? void 0 : _a.document.languageId;
+                    const result = yield sendToServerApi(action, subaction, languageId, text);
                     console.log(result);
-                    vscode.window.showInformationMessage(action + ' : ' + subaction + ' Created!');
+                    vscode.window.showInformationMessage('Snippet Created!');
                 }
                 catch (error) {
                     console.log(error);

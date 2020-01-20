@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 import { InputBoxOptions } from 'vscode';
 import * as request from "request-promise-native";
 
-async function sendToServerApi(action: String, subaction: String, language: String, template: String){
+async function sendToServerApi(action: String, subaction: String, language="plaintext", template: String){
 	const formData = {
 		// Pass a simple key-value pair
 		action: action,
@@ -64,9 +64,11 @@ export function activate(context: vscode.ExtensionContext) {
 				
 				try 
 				{
-					const result = await sendToServerApi(action, subaction, "python", text);
+					var languageId= vscode.window.activeTextEditor?.document.languageId;
+
+					const result = await sendToServerApi(action, subaction, languageId, text);
 					console.log(result);
-					vscode.window.showInformationMessage( action + ' : ' + subaction +  ' Created!');
+					vscode.window.showInformationMessage('Snippet Created!');
 				}
 				catch(error){
 					console.log(error);
